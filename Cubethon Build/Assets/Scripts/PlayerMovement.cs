@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float fowardforce = 2000f;
-    public float sidewaysforce = 500f;
+    public float sidewaysforce = 100f;
 
     void Start()
     {
@@ -22,12 +22,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey("d"))
         {
-            rb.AddForce(sidewaysforce * Time.deltaTime, 0, 0);
+            rb.AddForce(sidewaysforce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
         if (Input.GetKey("a"))
         {
-            rb.AddForce(-sidewaysforce * Time.deltaTime, 0, 0);
+            rb.AddForce(-sidewaysforce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
     }
 }
