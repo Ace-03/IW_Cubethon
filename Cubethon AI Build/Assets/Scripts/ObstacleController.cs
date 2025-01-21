@@ -7,28 +7,12 @@ public class ObstacleController : MonoBehaviour
     public Transform Player;
     public Vector3 Offset;
 
-
-
     public float maxSpeed;
     public Transform target;
-
-    float yRot = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        yRot = this.transform.eulerAngles.y;
-    }
-
+    
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log("yRot = " + yRot);
-       
-        //transform.position = Player.position + Offset;
-
-        //this.transform.eulerAngles = new Vector3(0, yRot, 0);
-
-
         SteeringControl steering = GetSteering();
         transform.position += steering.linVelocity * Time.deltaTime;
     }
@@ -52,7 +36,7 @@ public class ObstacleController : MonoBehaviour
     float NewOrientation(float currentOrientaion, Vector3 velocity)
     {
         if (velocity.magnitude > 0)
-            return Mathf.Atan2(velocity.x, velocity.z);
+            return Mathf.Atan2(-velocity.x, -velocity.z);
         else
             return currentOrientaion;
     }
