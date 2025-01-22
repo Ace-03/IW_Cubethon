@@ -25,11 +25,11 @@ public class ObstacleController : MonoBehaviour
 
         result.linVelocity = result.linVelocity.normalized * maxSpeed;
 
-        float angle = NewOrientation(transform.eulerAngles.y, result.linVelocity);
-        angle *= Mathf.Rad2Deg;
-        this.transform.eulerAngles = new Vector3(0, angle, 0);
+        float YAngle = NewOrientation(transform.eulerAngles.y, result.linVelocity);
+        YAngle *= Mathf.Rad2Deg;
+        this.transform.eulerAngles = new Vector3(0, YAngle, 0);
 
-        result.angVelocity = 0;
+        //result.angVelocity = 0;
         return result;
     }
 
